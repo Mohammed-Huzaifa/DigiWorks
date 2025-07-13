@@ -55,7 +55,7 @@ export default function Pricings(){
             <ClientsTwo/>
         </section> */}
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         </>
     )
 }

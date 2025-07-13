@@ -16,7 +16,7 @@ import client6 from "../assets/images/client/06.jpg"
 import ClientsTwo from "../components/clientTwo";
 import Blogs from "../components/blogs";
 import Footer from "../components/footer";
-import Switcher from "../components/switcher";
+// import Switcher from "../components/switcher"; // Switcher import is no longer needed
 import NavLight from "../components/navbar";
 
 import {FiCheckCircle} from "../assets/icons/vander"
@@ -26,11 +26,7 @@ import '../../node_modules/react-modal-video/css/modal-video.css'
 
 
 export default function AboutUs(){
-    useEffect(() => {
-        document.documentElement.setAttribute("dir", "ltr");
-        document.documentElement.classList.add('dark');
-        document.documentElement.classList.remove('light');
-      }, []);
+    // The useEffect hook that forced dark mode has been removed.
     const [isOpen, setOpen] = useState(false);
     const [activeIndex,setActiveIndex] = useState(0)
     const teamData = [
@@ -68,8 +64,9 @@ export default function AboutUs(){
     return(
         <>
         <NavLight/>
+        {/* The hero section's overlay and text have been changed for light mode */}
         <section className="relative md:py-44 py-32 bg-[url('../../assets/images/bg/bg-pages.jpg')] bg-no-repeat bg-bottom bg-cover">
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/70"></div>
+            <div className="absolute inset-0 bg-white/70"></div>
             <div className="container relative">
                 <div className="grid grid-cols-1 text-center mt-6">
                     <div>
@@ -77,31 +74,34 @@ export default function AboutUs(){
                     </div>
 
                     <ul className="tracking-[0.5px] mb-0 inline-block mt-5">
-                        <li className="inline-block capitalize text-[15px] font-medium duration-500 ease-in-out text-white/50 hover:text-white"><Link to="/">Digi.Ai</Link></li>
-                        <li className="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i className="mdi mdi-chevron-right"></i></li>
+                        <li className="inline-block capitalize text-[15px] font-medium duration-500 ease-in-out text-slate-500 hover:text-amber-400"><Link to="/">Digi.Ai</Link></li>
+                        <li className="inline-block text-base text-slate-500 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i className="mdi mdi-chevron-right"></i></li>
                         <li className="inline-block capitalize text-[15px] font-medium duration-500 ease-in-out text-white" aria-current="page">About Us</li>
                     </ul>
                 </div>
             </div>
         </section>
+        
+        {/* This shape creates a smooth transition to the white section below */}
         <div className="relative">
-            <div className="shape absolute sm:-bottom-px -bottom-[2px] start-0 end-0 overflow-hidden z-1 text-white dark:text-slate-900">
+            <div className="shape absolute sm:-bottom-px -bottom-[2px] start-0 end-0 overflow-hidden z-1 text-white">
                 <svg className="w-full h-auto scale-[2.0] origin-top" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
                 </svg>
             </div>
         </div>
 
-        <section className="relative md:py-24 py-16">
+        {/* All sections below have a white background and light mode styles */}
+        <section className="relative md:py-24 py-16 bg-white">
 
             <div className="container relative">
                 <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
-                    <div className="relative overflow-hidden after:content-[''] after:absolute after:inset-0 after:m-auto after:w-96 after:h-96 after:bg-gradient-to-tl after:to-amber-400 after:from-fuchsia-600 after:blur-[80px] after:rounded-full p-6 bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-slate-800 lg:me-6">
-                        <div className="relative overflow-hidden rounded-lg shadow-md dark:shadow-gray-800 z-1">
+                    <div className="relative overflow-hidden after:content-[''] after:absolute after:inset-0 after:m-auto after:w-96 after:h-96 after:bg-gradient-to-tl after:to-amber-400 after:from-fuchsia-600 after:blur-[80px] after:rounded-full p-6 bg-white rounded-md shadow lg:me-6">
+                        <div className="relative overflow-hidden rounded-lg shadow-md z-1">
                             <img src={AboutImg} alt=""/>
     
                             <div className="absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center">
-                                <Link to="#!" onClick={() => setOpen(true)} className="lightbox lg:h-16 h-14 lg:w-16 w-14 rounded-full shadow-lg dark:shadow-gray-800 inline-flex items-center justify-center bg-white dark:bg-slate-900 hover:bg-amber-400 dark:hover:bg-amber-400 text-amber-400 hover:text-white duration-500 ease-in-out mx-auto">
+                                <Link to="#!" onClick={() => setOpen(true)} className="lightbox lg:h-16 h-14 lg:w-16 w-14 rounded-full shadow-lg inline-flex items-center justify-center bg-white hover:bg-amber-400 text-amber-400 hover:text-white duration-500 ease-in-out mx-auto">
                                     <i className="mdi mdi-play inline-flex items-center justify-center text-2xl"></i>
                                 </Link>
                             </div>
@@ -115,16 +115,16 @@ export default function AboutUs(){
                         onClose={() => setOpen(false)} 
                     />
                     <div className="">
-                        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold"><span className="font-bold">About Us</span></h3>
-                        <p className="text-slate-400 max-w-xl">Digiworks was founded by visionary technologists with deep expertise in Enterprise business operational automations and AI. The minds behind the company combine decades of experience across Fortune 500 companies and startups.</p>
+                        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold"><span className="font-bold text-slate-900">About Us</span></h3>
+                        <p className="text-slate-900 max-w-xl">Digiworks was founded by visionary technologists with deep expertise in Enterprise business operational automations and AI. The minds behind the company combine decades of experience across Fortune 500 companies and startups.</p>
 
                         {/* <ul className="list-none text-slate-400 mt-4">
                             <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Digital Marketing Solutions for Tomorrow</li>
                             <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Our Talented & Experienced Marketing Agency</li>
                             <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Create your own skin to match your brand</li>
-                        </ul>
+                        </ul> */}
 
-                        <div className="mt-4">
+                        {/* <div className="mt-4">
                             <Link to="" className="hover:text-amber-400 font-medium duration-500">Read More <i className="mdi mdi-chevron-right text-[20px] align-middle"></i></Link>
                         </div> */}
                     </div>
@@ -135,8 +135,8 @@ export default function AboutUs(){
                 <div className="container relative">
                     <div className="grid grid-cols-1 text-center">
                         <div className="">
-                            <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl text-white tracking-normal mb-4">Our Vision.</h4>
-                            <p className="text-white/70 text-lg max-w-xl mx-auto">We are dedicated to making the complex world of AI transparent, actionable and accessible without compromise to every user to be ahead in the AI adoption.</p>
+                            <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl text-slate-900 tracking-normal mb-4">Our Vision.</h4>
+                            <p className="text-slate-900 text-lg max-w-xl mx-auto">We are dedicated to making the complex world of AI transparent, actionable and accessible without compromise to every user to be ahead in the AI adoption.</p>
 
                             {/* <div className="mt-6">
                                 <Link to="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-transparent hover:bg-amber-400 border-gray-800 dark:border-slate-800 hover:border-amber-400 dark:hover:border-amber-400 text-white rounded-md">Join Now!</Link>
@@ -196,7 +196,7 @@ export default function AboutUs(){
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>  */}
 
             {/* <div className="container relative md:mt-24 mt-16">
                 <div className="grid grid-cols-1 pb-6 text-center">
@@ -218,13 +218,13 @@ export default function AboutUs(){
                         )
                     })}
                 </div>
-            </div> */}
+            </div>
 
-            {/* <ClientsTwo/> */}
-            {/* <Blogs/> */}
+            <ClientsTwo/>
+            <Blogs/> */}
         </section>
         <Footer/>
-        <Switcher/> 
+        {/* <Switcher/>  */}
         </>
     )
 }

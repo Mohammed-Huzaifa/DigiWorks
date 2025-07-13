@@ -31,7 +31,7 @@ export default function Features({classlist}){
                     "</p>
                 </div>
 
-                {/* <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
                     {featuresData.map((item,index) => {
                         return(
                         <div className="relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800" key={index}>
@@ -46,7 +46,7 @@ export default function Features({classlist}){
                         </div>
                         )
                     })}
-                </div> */}
+                </div>
             </div>
         </>
     )
